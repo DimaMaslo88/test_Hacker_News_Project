@@ -1,24 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { Header } from 'ui/components/Header';
+import { Pages } from 'ui/pages/Pages';
+import { Footer } from 'ui/components/footer/Footer';
+import style from 'styles/appStyle/app.module.css';
+import { GetStory, GetStoryId } from 'bll/reducer/news-reducer';
+import { useAppDispatch } from 'bll/store';
+import { useSelector } from 'react-redux';
+import { selectNewsId } from 'bll/selectors/Selectors';
+import { deleteStory } from 'bll/actions/news-action';
+
 
 function App() {
+  const dispatch = useAppDispatch();
+  const storiesId = useSelector(selectNewsId);
+  useEffect(() => {
+    dispatch(GetStoryId());
+    setInterval(() => {
+      dispatch(deleteStory([]));
+      dispatch(GetStoryId());
+    }, 60000);
+
+
+  }, []);
+  useEffect(() => {
+
+    if (!storiesId || storiesId.length === 0) return;
+
+    storiesId.forEach(el => dispatch(GetStory(el)));
+
+  }, [storiesId]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={style.app}>
+      <Header />
+      <Pages />
+      <Footer />
+
     </div>
   );
 }

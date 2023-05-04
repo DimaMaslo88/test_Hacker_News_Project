@@ -1,0 +1,10 @@
+.news{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.comment{
+    border:1px solid black;
+    margin-left: 10px;
+}
