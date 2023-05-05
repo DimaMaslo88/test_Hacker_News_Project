@@ -1,6 +1,8 @@
+
 # HackerNews-TestProject
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Stack: React,Redux,TypeScript,Thunk,Rest-Api
 
 ## Available Scripts
 
@@ -49,3 +51,4 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## Link (сайт)
 https://dimamaslo88.github.io/test_Hacker_News_Project/
+
