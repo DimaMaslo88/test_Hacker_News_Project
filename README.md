@@ -2,6 +2,7 @@
 # HackerNews-TestProject
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 Stack: React,Redux,TypeScript,Thunk,Rest-Api
 
 ## Available Scripts
